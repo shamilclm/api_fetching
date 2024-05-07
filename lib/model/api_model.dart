@@ -10,14 +10,14 @@ part 'api_model.g.dart';
 @freezed
 class Article with _$Article {
   const factory Article({
-    required Source source,
-    required String author,
-    required String title,
-    required String description,
-    required String url,
-    required String urlToImage,
-    required DateTime publishedAt,
-    required String content,
+    @JsonKey(name: "source") required Source source,
+    @JsonKey(name: "author") required String? author,
+    @JsonKey(name: "title") required String? title,
+    @JsonKey(name: "description") required dynamic description,
+    @JsonKey(name: "url") required String url,
+    @JsonKey(name: "urlToImage") required dynamic urlToImage,
+    @JsonKey(name: "publishedAt") required DateTime publishedAt,
+    @JsonKey(name: "content") required String content,
   }) = _Article;
 
   factory Article.fromJson(Map<String, dynamic> json) =>
@@ -27,8 +27,8 @@ class Article with _$Article {
 @freezed
 class Source with _$Source {
   const factory Source({
-    required String? id,
-    required String name,
+    @JsonKey(name: "id") required dynamic id,
+    @JsonKey(name: "name") required String name,
   }) = _Source;
 
   factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);

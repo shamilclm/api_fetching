@@ -20,13 +20,21 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Article {
+  @JsonKey(name: "source")
   Source get source => throw _privateConstructorUsedError;
+  @JsonKey(name: "author")
   String? get author => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
+  @JsonKey(name: "title")
+  String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: "description")
+  dynamic get description => throw _privateConstructorUsedError;
+  @JsonKey(name: "url")
   String get url => throw _privateConstructorUsedError;
-  String? get urlToImage => throw _privateConstructorUsedError;
+  @JsonKey(name: "urlToImage")
+  dynamic get urlToImage => throw _privateConstructorUsedError;
+  @JsonKey(name: "publishedAt")
   DateTime get publishedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: "content")
   String get content => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,14 +48,14 @@ abstract class $ArticleCopyWith<$Res> {
       _$ArticleCopyWithImpl<$Res, Article>;
   @useResult
   $Res call(
-      {Source source,
-      String? author,
-      String title,
-      String? description,
-      String url,
-      String? urlToImage,
-      DateTime publishedAt,
-      String content});
+      {@JsonKey(name: "source") Source source,
+      @JsonKey(name: "author") String? author,
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "description") dynamic description,
+      @JsonKey(name: "url") String url,
+      @JsonKey(name: "urlToImage") dynamic urlToImage,
+      @JsonKey(name: "publishedAt") DateTime publishedAt,
+      @JsonKey(name: "content") String content});
 
   $SourceCopyWith<$Res> get source;
 }
@@ -67,7 +75,7 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
   $Res call({
     Object? source = null,
     Object? author = freezed,
-    Object? title = null,
+    Object? title = freezed,
     Object? description = freezed,
     Object? url = null,
     Object? urlToImage = freezed,
@@ -83,14 +91,14 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -98,7 +106,7 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
       urlToImage: freezed == urlToImage
           ? _value.urlToImage
           : urlToImage // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       publishedAt: null == publishedAt
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
@@ -127,14 +135,14 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {Source source,
-      String? author,
-      String title,
-      String? description,
-      String url,
-      String? urlToImage,
-      DateTime publishedAt,
-      String content});
+      {@JsonKey(name: "source") Source source,
+      @JsonKey(name: "author") String? author,
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "description") dynamic description,
+      @JsonKey(name: "url") String url,
+      @JsonKey(name: "urlToImage") dynamic urlToImage,
+      @JsonKey(name: "publishedAt") DateTime publishedAt,
+      @JsonKey(name: "content") String content});
 
   @override
   $SourceCopyWith<$Res> get source;
@@ -153,7 +161,7 @@ class __$$ArticleImplCopyWithImpl<$Res>
   $Res call({
     Object? source = null,
     Object? author = freezed,
-    Object? title = null,
+    Object? title = freezed,
     Object? description = freezed,
     Object? url = null,
     Object? urlToImage = freezed,
@@ -169,14 +177,14 @@ class __$$ArticleImplCopyWithImpl<$Res>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -184,7 +192,7 @@ class __$$ArticleImplCopyWithImpl<$Res>
       urlToImage: freezed == urlToImage
           ? _value.urlToImage
           : urlToImage // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       publishedAt: null == publishedAt
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
@@ -201,33 +209,41 @@ class __$$ArticleImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ArticleImpl implements _Article {
   const _$ArticleImpl(
-      {required this.source,
-      required this.author,
-      required this.title,
-      required this.description,
-      required this.url,
-      required this.urlToImage,
-      required this.publishedAt,
-      required this.content});
+      {@JsonKey(name: "source") required this.source,
+      @JsonKey(name: "author") required this.author,
+      @JsonKey(name: "title") required this.title,
+      @JsonKey(name: "description") required this.description,
+      @JsonKey(name: "url") required this.url,
+      @JsonKey(name: "urlToImage") required this.urlToImage,
+      @JsonKey(name: "publishedAt") required this.publishedAt,
+      @JsonKey(name: "content") required this.content});
 
   factory _$ArticleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArticleImplFromJson(json);
 
   @override
+  @JsonKey(name: "source")
   final Source source;
   @override
+  @JsonKey(name: "author")
   final String? author;
   @override
-  final String title;
+  @JsonKey(name: "title")
+  final String? title;
   @override
-  final String? description;
+  @JsonKey(name: "description")
+  final dynamic description;
   @override
+  @JsonKey(name: "url")
   final String url;
   @override
-  final String? urlToImage;
+  @JsonKey(name: "urlToImage")
+  final dynamic urlToImage;
   @override
+  @JsonKey(name: "publishedAt")
   final DateTime publishedAt;
   @override
+  @JsonKey(name: "content")
   final String content;
 
   @override
@@ -243,11 +259,11 @@ class _$ArticleImpl implements _Article {
             (identical(other.source, source) || other.source == source) &&
             (identical(other.author, author) || other.author == author) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
             (identical(other.url, url) || other.url == url) &&
-            (identical(other.urlToImage, urlToImage) ||
-                other.urlToImage == urlToImage) &&
+            const DeepCollectionEquality()
+                .equals(other.urlToImage, urlToImage) &&
             (identical(other.publishedAt, publishedAt) ||
                 other.publishedAt == publishedAt) &&
             (identical(other.content, content) || other.content == content));
@@ -255,8 +271,16 @@ class _$ArticleImpl implements _Article {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, source, author, title,
-      description, url, urlToImage, publishedAt, content);
+  int get hashCode => Object.hash(
+      runtimeType,
+      source,
+      author,
+      title,
+      const DeepCollectionEquality().hash(description),
+      url,
+      const DeepCollectionEquality().hash(urlToImage),
+      publishedAt,
+      content);
 
   @JsonKey(ignore: true)
   @override
@@ -274,32 +298,40 @@ class _$ArticleImpl implements _Article {
 
 abstract class _Article implements Article {
   const factory _Article(
-      {required final Source source,
-      required final String? author,
-      required final String title,
-      required final String? description,
-      required final String url,
-      required final String? urlToImage,
-      required final DateTime publishedAt,
-      required final String content}) = _$ArticleImpl;
+      {@JsonKey(name: "source") required final Source source,
+      @JsonKey(name: "author") required final String? author,
+      @JsonKey(name: "title") required final String? title,
+      @JsonKey(name: "description") required final dynamic description,
+      @JsonKey(name: "url") required final String url,
+      @JsonKey(name: "urlToImage") required final dynamic urlToImage,
+      @JsonKey(name: "publishedAt") required final DateTime publishedAt,
+      @JsonKey(name: "content") required final String content}) = _$ArticleImpl;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
   @override
+  @JsonKey(name: "source")
   Source get source;
   @override
+  @JsonKey(name: "author")
   String? get author;
   @override
-  String get title;
+  @JsonKey(name: "title")
+  String? get title;
   @override
-  String? get description;
+  @JsonKey(name: "description")
+  dynamic get description;
   @override
+  @JsonKey(name: "url")
   String get url;
   @override
-  String? get urlToImage;
+  @JsonKey(name: "urlToImage")
+  dynamic get urlToImage;
   @override
+  @JsonKey(name: "publishedAt")
   DateTime get publishedAt;
   @override
+  @JsonKey(name: "content")
   String get content;
   @override
   @JsonKey(ignore: true)
@@ -313,7 +345,9 @@ Source _$SourceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Source {
-  String? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "id")
+  dynamic get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "name")
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -326,7 +360,8 @@ abstract class $SourceCopyWith<$Res> {
   factory $SourceCopyWith(Source value, $Res Function(Source) then) =
       _$SourceCopyWithImpl<$Res, Source>;
   @useResult
-  $Res call({String? id, String name});
+  $Res call(
+      {@JsonKey(name: "id") dynamic id, @JsonKey(name: "name") String name});
 }
 
 /// @nodoc
@@ -349,7 +384,7 @@ class _$SourceCopyWithImpl<$Res, $Val extends Source>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -365,7 +400,8 @@ abstract class _$$SourceImplCopyWith<$Res> implements $SourceCopyWith<$Res> {
       __$$SourceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, String name});
+  $Res call(
+      {@JsonKey(name: "id") dynamic id, @JsonKey(name: "name") String name});
 }
 
 /// @nodoc
@@ -386,7 +422,7 @@ class __$$SourceImplCopyWithImpl<$Res>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -398,14 +434,18 @@ class __$$SourceImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SourceImpl implements _Source {
-  const _$SourceImpl({required this.id, required this.name});
+  const _$SourceImpl(
+      {@JsonKey(name: "id") required this.id,
+      @JsonKey(name: "name") required this.name});
 
   factory _$SourceImpl.fromJson(Map<String, dynamic> json) =>
       _$$SourceImplFromJson(json);
 
   @override
-  final String? id;
+  @JsonKey(name: "id")
+  final dynamic id;
   @override
+  @JsonKey(name: "name")
   final String name;
 
   @override
@@ -418,13 +458,14 @@ class _$SourceImpl implements _Source {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SourceImpl &&
-            (identical(other.id, id) || other.id == id) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id), name);
 
   @JsonKey(ignore: true)
   @override
@@ -442,13 +483,16 @@ class _$SourceImpl implements _Source {
 
 abstract class _Source implements Source {
   const factory _Source(
-      {required final String? id, required final String name}) = _$SourceImpl;
+      {@JsonKey(name: "id") required final dynamic id,
+      @JsonKey(name: "name") required final String name}) = _$SourceImpl;
 
   factory _Source.fromJson(Map<String, dynamic> json) = _$SourceImpl.fromJson;
 
   @override
-  String? get id;
+  @JsonKey(name: "id")
+  dynamic get id;
   @override
+  @JsonKey(name: "name")
   String get name;
   @override
   @JsonKey(ignore: true)
