@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:singleapi_fetching/controller/controller/fav.dart';
-import 'package:singleapi_fetching/model/objectbox/fav_model.dart';
 import 'package:singleapi_fetching/view/pages/description_page.dart';
 
 class FavListviewWidget extends ConsumerWidget {
@@ -23,8 +21,8 @@ class FavListviewWidget extends ConsumerWidget {
                 backgroundColor: Color.fromARGB(255, 241, 131, 168),
                 icon: Icons.favorite,
                 label: 'Add to favorite',
-                onPressed: (context) {
-                  ref
+                onPressed: (context) async {
+                  await ref
                       .read(newsProvider.notifier)
                       .removeFromFav(data![index].id, context);
                 },
@@ -91,11 +89,6 @@ class FavListviewWidget extends ConsumerWidget {
                               )
                             ],
                           ),
-                          GestureDetector(
-                              onTap: () => ref
-                                  .read(newsProvider.notifier)
-                                  .removeFromFav(data[index].id, context),
-                              child: Icon(Icons.delete)),
                         ]),
                       )),
                 )));

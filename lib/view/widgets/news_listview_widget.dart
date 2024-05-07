@@ -19,7 +19,7 @@ class NewsListviewWidget extends ConsumerWidget {
               endActionPane:
                   ActionPane(motion: const StretchMotion(), children: [
                 SlidableAction(
-                  backgroundColor: Color.fromARGB(255, 241, 131, 168),
+                  backgroundColor: const Color.fromARGB(255, 241, 131, 168),
                   icon: Icons.favorite,
                   label: 'Add to favorite',
                   onPressed: (context) {
